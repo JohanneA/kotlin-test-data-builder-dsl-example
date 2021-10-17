@@ -8,6 +8,8 @@ class BoxTestDataBuilder(
     var id: Long = 1L,
     var content: List<Product> = emptyList()
 ) {
+
+    // Add a new product to the content of the box
     inline fun buildProduct(buildProduct: ProductTestDataBuilder.() -> Unit) {
         val productBuilder = ProductTestDataBuilder()
 
@@ -15,9 +17,10 @@ class BoxTestDataBuilder(
         addProduct(productBuilder.build())
     }
 
+    // Override an existing product, the product must be in the box already for this to work
     inline fun overrideProduct(id: Long, buildProduct: ProductTestDataBuilder.() -> Unit) {
         if (!productIdExists(id)) {
-            throw IllegalArgumentException("Product $id  does not exist")
+            throw IllegalArgumentException("Product with id $id  does not exist")
         }
 
         val productBuilder = ProductTestDataBuilder()

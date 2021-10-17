@@ -3,6 +3,7 @@ package me.johanne.test_data_dsl.builders
 import me.johanne.test_data_dsl.Box
 import me.johanne.test_data_dsl.Shipment
 
+// Entry point for building a shipment
 inline fun buildShipment(buildShipment: ShipmentTestDataBuilder.() -> Unit): ShipmentTestDataBuilder {
     val shipmentBuilder = ShipmentTestDataBuilder()
     shipmentBuilder.buildShipment()
@@ -22,6 +23,7 @@ class ShipmentTestDataBuilder(
         return this
     }
 
+    // Add a new box to the list of boxes in shipment
     inline fun buildBox(buildBox: BoxTestDataBuilder.() -> Unit) {
         val boxBuilder = BoxTestDataBuilder()
 
@@ -29,9 +31,10 @@ class ShipmentTestDataBuilder(
         addBox(boxBuilder.build())
     }
 
+    // Override an existing box, the box must be in the shipment already for this to work
     inline fun overrideBox(id: Long, buildBox: BoxTestDataBuilder.() -> Unit) {
         if (!boxIdExists(id)) {
-            throw IllegalArgumentException("Id $id does not exist")
+            throw IllegalArgumentException("Box with id $id does not exist")
         }
 
         val boxBuilder = BoxTestDataBuilder()
