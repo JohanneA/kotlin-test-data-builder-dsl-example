@@ -29,7 +29,7 @@ class ShipmentTestDataBuilder(
         addBox(boxBuilder.build())
     }
 
-    inline fun buildBox(id: Long, buildBox: BoxTestDataBuilder.() -> Unit) {
+    inline fun overrideBox(id: Long, buildBox: BoxTestDataBuilder.() -> Unit) {
         if (!boxIdExists(id)) {
             throw IllegalArgumentException("Id $id does not exist")
         }

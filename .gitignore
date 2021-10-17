@@ -137,7 +137,7 @@ hs_err_pid*
 build/
 
 #Gradle
-.gradle
+.gradle/
 
 
 

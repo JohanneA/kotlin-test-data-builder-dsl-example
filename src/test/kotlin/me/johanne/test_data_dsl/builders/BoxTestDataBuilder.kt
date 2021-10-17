@@ -15,7 +15,7 @@ class BoxTestDataBuilder(
         addProduct(productBuilder.build())
     }
 
-    inline fun buildProduct(id: Long, buildProduct: ProductTestDataBuilder.() -> Unit) {
+    inline fun overrideProduct(id: Long, buildProduct: ProductTestDataBuilder.() -> Unit) {
         if (!productIdExists(id)) {
             throw IllegalArgumentException("Product $id  does not exist")
         }

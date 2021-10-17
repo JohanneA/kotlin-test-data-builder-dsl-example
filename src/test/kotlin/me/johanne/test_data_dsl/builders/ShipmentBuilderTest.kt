@@ -1,6 +1,5 @@
-package me.johanne.test_data_dsl
+package me.johanne.test_data_dsl.builders
 
-import me.johanne.test_data_dsl.builders.buildShipment
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 
@@ -123,8 +122,8 @@ class ShipmentBuilderTest {
         assert(firstShipment.boxes[0].contents[0].name == "Pink Fuzzy Jacket")
 
         val secondShipment = shipment.override {
-            buildBox(2L) {
-                buildProduct(2L) {
+            overrideBox(2L) {
+                overrideProduct(2L) {
                     name = "Pink Fuzzy Jacket 2"
                     weight = 2.0
                 }
