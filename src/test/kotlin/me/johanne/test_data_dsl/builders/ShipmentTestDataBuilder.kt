@@ -26,8 +26,8 @@ class ShipmentTestDataBuilder(
     // Add a new box to the list of boxes in shipment
     inline fun buildBox(buildBox: BoxTestDataBuilder.() -> Unit) {
         val boxBuilder = BoxTestDataBuilder()
-
         boxBuilder.buildBox()
+
         addBox(boxBuilder.build())
     }
 
