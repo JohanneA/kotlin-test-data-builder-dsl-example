@@ -38,9 +38,9 @@ class ShipmentTestDataBuilder(
         }
 
         val boxBuilder = BoxTestDataBuilder()
-        val existingCabin = getBox(id)
+        val existingBox = getBox(id)
 
-        boxBuilder.merge(existingCabin)
+        boxBuilder.merge(existingBox)
         boxBuilder.buildBox()
 
         removeBoxes(id)

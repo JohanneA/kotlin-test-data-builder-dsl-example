@@ -24,9 +24,9 @@ class BoxTestDataBuilder(
         }
 
         val productBuilder = ProductTestDataBuilder()
-        val existingCabin = getProduct(id)
+        val existingBox = getProduct(id)
 
-        productBuilder.merge(existingCabin)
+        productBuilder.merge(existingBox)
         productBuilder.buildProduct()
 
         removeProduct(id)
